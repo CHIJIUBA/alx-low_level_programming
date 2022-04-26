@@ -1,10 +1,14 @@
 #include "main.h"
-#include "stdio.h"
+
 /**
- * main - check the code for ALX School students.
+ * _strspn - Gets the length of a prefix substring.
+ * @s: The string to be searched.
+ * @accept: The prefix to be measured.
  *
- * Return: Always 0
+ * Return: The number of bytes in s which
+ * consist only of bytes from accept.
  */
+
 unsigned int _strspn(char *s, char *accept)
 {
 	unsigned int bytes = 0;
@@ -26,6 +30,6 @@ unsigned int _strspn(char *s, char *accept)
 
 		s++;
 	}
+
 	return (bytes);
 }
-
