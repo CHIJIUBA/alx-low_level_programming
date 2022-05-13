@@ -1,11 +1,17 @@
 #include "3-calc.h"
 
+int op_add(int a, int b);
+int op_sub(int a, int b);
+int op_mul(int a, int b);
+int op_div(int a, int b);
+int op_mod(int a, int b);
+
 /**
- * op_add - adds two numbers.
- * @a: first number.
- * @b: second number.
+ * op_add - Returns the sum of two numbers.
+ * @a: The first number.
+ * @b: The second number.
  *
- * Return: add.
+ * Return: The sum of a and b.
  */
 int op_add(int a, int b)
 {
@@ -13,11 +19,11 @@ int op_add(int a, int b)
 }
 
 /**
- * op_sub - subctracts two numbers.
- * @a: first number.
- * @b: second number.
+ * op_sub - Returns the difference of two numbers.
+ * @a: The first number.
+ * @b: The second number.
  *
- * Return: difference.
+ * Return: The difference of a and b.
  */
 int op_sub(int a, int b)
 {
@@ -25,11 +31,11 @@ int op_sub(int a, int b)
 }
 
 /**
- * op_mul - multiplies two numbers.
- * @a: first number.
- * @b: second number.
+ * op_mul - Returns the product of two numbers.
+ * @a: The first number.
+ * @b: The second number.
  *
- * Return: multiplication.
+ * Return: The product of a and b.
  */
 int op_mul(int a, int b)
 {
@@ -37,80 +43,25 @@ int op_mul(int a, int b)
 }
 
 /**
- * op_div - divides two numbers.
- * @a: first number.
- * @b: second number.
+ * op_div - Returns the division of two numbers.
+ * @a: The first number.
+ * @b: The second number.
  *
- * Return: division.
+ * Return: The quotient of a and b.
  */
 int op_div(int a, int b)
 {
-	if (b == 0)
-	{
-		printf("Error\n");
-		exit(100);
-	}
 	return (a / b);
 }
 
 /**
- * op_mod - calculates the module of two numbers.
- * @a: first number.
- * @b: second number.
+ * op_mod - Returns the remainder of the division of two numbers.
+ * @a: The first number.
+ * @b: The second number.
  *
- * Return: remainder of the division.
+ * Return: The remainder of the division of a by b.
  */
 int op_mod(int a, int b)
 {
-	if (b == 0)
-	{
-		printf("Error\n");
-		exit(100);
-	}
 	return (a % b);
-}
-
-
-
-100-main_opcodes.c
-
-
-#include <stdio.h>
-#include <stdlib.h>
-
-/**
- * main - check the code for Holberton School students.
- * @argc: argument count.
- * @argv: argument vector.
- *
- * Return: Always 0.
- */
-int main(int argc, char *argv[])
-{
-	char *opc = (char *) main;
-	int i, nbytes;
-
-	if (argc != 2)
-	{
-		printf("Error\n");
-		exit(1);
-	}
-
-	nbytes = atoi(argv[1]);
-
-	if (nbytes < 0)
-	{
-		printf("Error\n");
-		exit(2);
-	}
-
-	for (i = 0; i < nbytes; i++)
-	{
-		printf("%02x", opc[i] & 0xFF);
-		if (i != nbytes - 1)
-			printf(" ");
-	}
-
-	printf("\n");
-	return (0);
 }
