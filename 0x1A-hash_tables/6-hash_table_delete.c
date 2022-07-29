@@ -1,30 +1,39 @@
 #include "hash_tables.h"
 
 /**
- * hash_table_delete - Deletes a hash table.
- * @ht: A pointer to a hash table.
+ *  free_recursively - frees a linked list of hash nodes
+ *  @node: is the head of the linked list
+ *  Return: Nothing
+ */
+void free_recursively(hash_node_t *node)
+{
+	if (node)
+	{
+		free_recursively(node->next);
+		free(node->key);
+		free(node->value);
+		free(node);
+	}
+}
+
+/**
+ * hash_table_delete - deletes a hash table
+ * @ht: is the hash table
+ * Return: nothing
  */
 void hash_table_delete(hash_table_t *ht)
 {
-	hash_table_t *head = ht;
-	hash_node_t *node, *tmp;
-	unsigned long int i;
+	hash_node_t *node;
+	size_t i;
 
-	for (i = 0; i < ht->size; i++)
+	if (ht)
 	{
-		if (ht->array[i] != NULL)
+		for (i = 0; i < ht->size; i++)
 		{
 			node = ht->array[i];
-			while (node != NULL)
-			{
-				tmp = node->next;
-				free(node->key);
-				free(node->value);
-				free(node);
-				node = tmp;
-			}
+			free_recursively(node);
 		}
+		free(ht->array);
+		free(ht);
 	}
-	free(head->array);
-	free(head);
 }
