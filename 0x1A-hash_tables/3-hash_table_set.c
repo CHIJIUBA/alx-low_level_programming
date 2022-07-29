@@ -30,8 +30,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
     
     strcpy(item->value, value);
     strcpy(item->key, key);
-    //item->next = NULL;
-
+    item->next = NULL;
     index = key_index((const unsigned char *)key, ht->size);
     current_item = ht->array[index];
 
