@@ -12,8 +12,8 @@ void free_recursively(hash_node_t *node)
 		free_recursively(node->next);
 		free(node->key);
 		free(node->value);
-		free(node);
 	}
+	free(node);
 }
 
 /**
